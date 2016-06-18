@@ -14,6 +14,11 @@ class CreateVirusMatchesTable extends Migration
     {
         Schema::create('virus_matches', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('player1_id');
+            $table->integer('player2_id');
+            $table->index(['player1_id','player2_id']);
+            $table->integer('field_height');
+            $table->integer('field_width');
             $table->timestamps();
         });
     }

@@ -14,6 +14,11 @@ class CreateVirusCellsTable extends Migration
     {
         Schema::create('virus_cells', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('virus_match_id')->index();
+            $table->integer('x');
+            $table->integer('y');
+            $table->string('state');
+            $table->index(['x','y']);
             $table->timestamps();
         });
     }
